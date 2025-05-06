@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: ./build.sh
+      - run: ./build-image.sh
         working-directory: docker/debian-12.10-slim
         env:
           GIT_REF_NAME: ${{ github.ref_name}}
