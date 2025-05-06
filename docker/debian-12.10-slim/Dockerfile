@@ -1,5 +1,24 @@
 FROM debian:12.10-slim
 
+ARG CREATION_TIME
+ARG BRANCH
+ARG COMMIT_HASH
+
+LABEL org.opencontainers.image.title="SteamCMD"
+LABEL org.opencontainers.image.description="SteamCMD Docker image based on Debian 12.10-slim"
+
+LABEL org.opencontainers.image.created="$CREATION_TIME"
+
+LABEL org.opencontainers.image.authors="dvchevskii@gmail.com"
+LABEL org.opencontainers.image.url="https://github.com/2chevskii/steamcmd-docker"
+LABEL org.opencontainers.image.source="https://github.com/2chevskii/steamcmd-docker.git"
+LABEL org.opencontainers.image.vendor="2CHEVSKII"
+LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.documentation="https://github.com/2chevskii/steamcmd-docker/wiki"
+
+LABEL org.opencontainers.image.ref.name="$BRANCH"
+LABEL org.opencontainers.image.revision="$COMMIT_HASH"
+
 RUN useradd -m steam
 
 COPY /docker-entrypoint.sh /docker-entrypoint.sh
