@@ -29,8 +29,9 @@ jobs:
       - run: docker push --all-tags docker.io/2chevskii/steamcmd
       - uses: peter-evans/dockerhub-description@v4
         with:
+          repository: 2chevskii/steamcmd
           username: ${{ vars.DOCKERIO_USERNAME }}
           password: ${{ secrets.DOCKERIO_TOKEN }}
-          repository: 2chevskii/steamcmd
+          short-description: ${{ github.event.repository.description }}
     permissions:
       packages: write
