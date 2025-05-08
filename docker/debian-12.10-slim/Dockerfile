@@ -1,7 +1,7 @@
 FROM debian:12.10-slim
 
 ARG CREATION_TIME
-ARG BRANCH
+ARG BRANCH_NAME
 ARG COMMIT_HASH
 
 LABEL org.opencontainers.image.title="SteamCMD"
@@ -16,7 +16,7 @@ LABEL org.opencontainers.image.vendor="2CHEVSKII"
 LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.documentation="https://github.com/2chevskii/steamcmd-docker/wiki"
 
-LABEL org.opencontainers.image.ref.name="$BRANCH"
+LABEL org.opencontainers.image.ref.name="$BRANCH_NAME"
 LABEL org.opencontainers.image.revision="$COMMIT_HASH"
 
 COPY /docker-entrypoint.sh /docker-entrypoint.sh
