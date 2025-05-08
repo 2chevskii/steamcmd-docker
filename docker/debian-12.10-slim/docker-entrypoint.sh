@@ -7,9 +7,9 @@ if [ -d "/docker-entrypoint.d" ] && [ "$(ls -A /docker-entrypoint.d)" ]; then
   for script in /docker-entrypoint.d/*; do
     [ -f "$script" ] || continue
     echo "Running $script"
-    "/home/steam/steamcmd/steamcmd.sh" +runscript "$script" +quit
+    "/steamcmd/steamcmd.sh" +runscript "$script" +quit
   done
 fi
 
 echo "Starting SteamCMD"
-exec "/home/steam/steamcmd/steamcmd.sh" "$@"
+exec "/steamcmd/steamcmd.sh" "$@"

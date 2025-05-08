@@ -19,8 +19,6 @@ LABEL org.opencontainers.image.documentation="https://github.com/2chevskii/steam
 LABEL org.opencontainers.image.ref.name="$BRANCH"
 LABEL org.opencontainers.image.revision="$COMMIT_HASH"
 
-RUN useradd -m steam
-
 COPY /docker-entrypoint.sh /docker-entrypoint.sh
 RUN mkdir /docker-entrypoint.d
 RUN chmod +x /docker-entrypoint.sh
@@ -43,8 +41,7 @@ ENV LANG=en_US.utf8
 
 RUN apt-get update && apt-get autoclean -y && apt-get autoremove -y
 
-USER steam:steam
-WORKDIR /home/steam/steamcmd
+WORKDIR /steamcmd
 
 RUN curl -sSL https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -xzv
 
